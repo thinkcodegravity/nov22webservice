@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.net.HttpHeaders;
 
 import io.swagger.annotations.*;
-
+//PUBLISH Webservice
 @RestController
 public class RestCalculator {
 		 
@@ -40,6 +40,7 @@ public class RestCalculator {
 	
 	// http://localhost:8888/jsonReqMul - send json in request body,
 	// input type json string
+	// JSON string input >>>>> converted >>>> Java Input Object
 	@RequestMapping(value = "/jsonReqMul", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	public int mulCalculator(@RequestBody Input in) {
@@ -48,7 +49,8 @@ public class RestCalculator {
 		return mul;
 	}
 	
-	// http://localhost/jsonRes/1/2
+	// http://localhost:8888/jsonRes/1/2
+	// java object Output >>>>> converted >>>> JSON string
 	@RequestMapping(value = "/jsonRes/{param1}/{param2}", 
 			method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Output calculator(@PathVariable int param1, @PathVariable int param2) {
